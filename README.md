@@ -18,7 +18,6 @@ CLIENT_ID=your_client_id
 CLIENT_SECRET=your_client_secret
 TENANT_ID=your_tenant_id
 DATABASE_URL=your_database_url
-REDIRECT_URI=http://localhost:5000/auth/callback
 ```
 
 Create your local database and local user.
