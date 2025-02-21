@@ -47,6 +47,3 @@ python3 run.py
 # Config
 Default and global config is located under `root/config.py`.
 
-# Secrets
-To add your own secrets, create your own under `app/instances/config.py`
-
