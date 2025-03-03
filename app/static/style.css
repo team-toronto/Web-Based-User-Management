@@ -1,196 +1,270 @@
-/* Improved Navigation Bar (Fixed & Styled) */
-.banner {
-    background: #111e82;
-    padding: 15px 0;
-    text-align: center;
-    width: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000; /* Ensure navbar is always on top */
+/* Modern Website Design - Complete gray background update */
+
+/* Base Styles & Variables */
+:root {
+  --primary: #1a237e;         /* Dark blue from image */
+  --primary-dark: #0d1642;    /* Darker shade for hover states */
+  --background: #212121;      /* Light gray background */
+  
+  --card-bg: #ffffff;         /* Gray card background */
+  --text: #0f172a;            /* Dark text */
+  --text-light: #64748b;      /* Secondary text */
+  --danger: #ef4444;          /* Red for errors/logout */
+  --success: #10b981;         /* Green for success messages */
+  --radius: 12px;             /* Consistent border radius */
+  --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
 }
 
-/* Navbar Links as Buttons */
+/* Essential reset to ensure no white backgrounds */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--background);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  width: 100%;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  color: var(--text);
+  line-height: 1.5;
+  background-color: var(--background);
+}
+
+/* Modern Navigation Bar */
+.banner {
+  background: var(--primary);
+  padding: 16px 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+/* Navigation Links */
 nav ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 20px;
-    align-items: center;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  gap: 16px;
+  align-items: center;
 }
 
 nav ul li {
-    display: inline;
+  display: inline;
 }
 
 nav ul li a {
-    background: white;
-    color: #007BFF;
-    text-decoration: none;
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 20px;
-    border-radius: 8px;
-    transition: 0.3s ease-in-out;
-    border: 2px solid white;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 10px 20px;
+  border-radius: var(--radius);
+  transition: all 0.2s ease-in-out;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(4px);
 }
 
-/* Hover Effect */
+/* Hover Effect with subtle animation */
 nav ul li a:hover {
-    background: rgba(255, 255, 255, 0.2);
-    color: white;
-    border: 2px solid white;
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
 }
 
-/* User Info - Display Name & Email */
+/* User Info - Modern, clean styling */
 .user-info {
-    color: white !important;
-    font-weight: bold;
-    font-size: 16px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
-    margin-left: 10px;
+  color: white !important;
+  font-weight: 500;
+  font-size: 15px;
+  margin-left: 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 /* Logout Button */
 .logout-btn {
-    background: #dc3545; /* Red logout button */
-    color: white;
-    padding: 10px 15px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    transition: 0.3s ease-in-out;
-    border: 2px solid white;
+  background: var(--danger);
+  color: white;
+  padding: 10px 16px;
+  border-radius: var(--radius);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 14px;
+  transition: all 0.2s ease-in-out;
+  border: none;
 }
 
 .logout-btn:hover {
-    background: #c82333;
-    border: 2px solid white;
+  background: #dc2626;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transform: translateY(-1px);
 }
 
-/* Dashboard Container */
-.dashboard-container {
-    margin-top: 140px; /* Adjust for navbar */
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 60%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
+/* Comprehensive container styles to ensure no white backgrounds */
+.dashboard-container,
+.page-container,
+.home-container,
+.about-container,
+.contact-container {
+  margin-top: 120px;
+  background: var(--card-bg);
+  padding: 32px;
+  border-radius: var(--radius);
+  width: 90%;
+  max-width: 900px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: var(--shadow);
 }
 
-/* User Table */
+/* Make sure all possible container elements have gray backgrounds */
+main, section, article, div {
+  background-color: inherit;
+}
+
+/* Explicitly target the welcome container seen in your screenshot */
+.home-container, div[role="main"], .welcome-container {
+  background-color: var(--card-bg);
+}
+
+/* Consistent headings */
+h1, h2, h3 {
+  font-weight: 600;
+  color: var(--text);
+  margin-top: 0;
+}
+
+h1 {
+  font-size: 1.875rem;
+  margin-bottom: 1.5rem;
+}
+
+p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Modern User Table */
 .user-table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin-top: 24px;
+  border-radius: var(--radius);
+  overflow: hidden;
+  background-color: var(--card-bg);
 }
 
 .user-table th, .user-table td {
-    padding: 10px;
-    border: 1px solid #ddd;
-    text-align: left;
+  padding: 14px 20px;
+  text-align: left;
+  border: none;
 }
 
 .user-table th {
-    background: #007BFF;
-    color: white;
+  background: var(--primary);
+  color: white;
+  font-weight: 500;
+  font-size: 14px;
 }
 
 .user-table tr:nth-child(even) {
-    background: #f2f2f2;
+  background: #d8dbe3;
 }
 
-/* Flash Messages */
+.user-table tr:nth-child(odd) {
+  background: var(--card-bg);
+}
+
+.user-table tr {
+  transition: background-color 0.2s ease;
+}
+
+.user-table tr:hover {
+  background-color: #cfd3df;
+}
+
+/* Modern Flash Messages */
 .flash-messages {
-    position: absolute;
-    top: 80px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 50%;
-    text-align: center;
-    z-index: 1000;
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  z-index: 1001;
 }
 
 .flash-message {
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    font-size: 16px;
+  padding: 14px 16px;
+  margin: 10px 0;
+  border-radius: var(--radius);
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: var(--shadow);
+  animation: slideDown 0.3s ease-out forwards;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Flash Message Types */
 .flash-message.success {
-    background: #d4edda;
-    color: #155724;
-    border: 1px solid #c3e6cb;
+  background: #ecfdf5;
+  color: #065f46;
+  border-left: 4px solid var(--success);
 }
 
 .flash-message.error {
-    background: #f8d7da;
-    color: #721c24;
-    border: 1px solid #f5c6cb;
-}
-/* Ensure consistent centering for home, about, and contact pages */
-.page-container {
-    margin-top: 140px; /* Adjust for navbar */
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
+  background: #fef2f2;
+  color: #991b1b;
+  border-left: 4px solid var(--danger);
 }
 
-/* Home Page Styling */
-.home-container {
-    margin-top: 140px; /* Adjust for navbar */
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
-}
-
-/* About Page Styling */
-.about-container {
-    margin-top: 140px; /* Adjust for navbar */
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
-}
-
-/* Contact Page Styling */
-.contact-container {
-    margin-top: 140px; /* Adjust for navbar */
-    background: white;
-    padding: 40px;
-    border-radius: 12px;
-    width: 50%;
-    text-align: center;
-    margin-left: auto;
-    margin-right: auto;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: 'Arial', sans-serif;
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .dashboard-container,
+  .page-container,
+  .home-container,
+  .about-container,
+  .contact-container {
+    width: 90%;
+    padding: 24px;
+  }
+  
+  nav ul {
+    gap: 10px;
+  }
+  
+  nav ul li a {
+    padding: 8px 14px;
+    font-size: 14px;
+  }
 }
