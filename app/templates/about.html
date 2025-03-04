@@ -1,9 +1,20 @@
 {% extends "base.html" %}
+
 {% block title %}About - User Management{% endblock %}
 
 {% block content %}
-<div class="about-container">
-    <h2>About This Project</h2>
-    <p>This is a user management system that allows administrators to manage users efficiently.</p>
-</div>
+<section class="about-container" aria-labelledby="about-heading">
+    <h2 id="about-heading">About This Project</h2>
+    <p class="about-description">
+        This is a user management system designed to help administrators manage users efficiently. 
+        It provides tools for adding, editing, and deleting user accounts. Built with scalability and security in mind, this system ensures 
+        seamless user management for organizations of all sizes.
+    </p>
+    <ul class="about-features">
+        <li>Add, edit, and delete user accounts with ease.</li>
+        
+        <li>Role-based access control for enhanced security.</li>
+        <li>Scalable and adaptable to organizational needs.</li>
+    </ul>
+</section>
 {% endblock %}

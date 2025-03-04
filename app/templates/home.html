@@ -1,9 +1,21 @@
-{% extends "base.html" %} 
+{% extends "base.html" %}
+
 {% block title %}Home - User Management{% endblock %}
 
 {% block content %}
-<div class="home-container">
-    <h2>Welcome to the User Management System</h2>
-    <p>This is the homepage. Navigate using the menu above.</p>
-</div>
+<section class="home-container" aria-labelledby="home-heading">
+    <h1 id="home-heading">Welcome to the User Management System</h1>
+    <p class="home-description">
+        This is the homepage of the User Management System. Navigate using the menu above to manage users and access other features.
+    </p>
+    <div class="home-features">
+        <h2>Key Features</h2>
+        <ul>
+            <li>Efficient user management with add, edit, and delete functionality.</li>
+            <li>Role-based access control for enhanced security.</li>
+          
+            <li>Scalable and adaptable to organizational needs.</li>
+        </ul>
+    </div>
+</section>
 {% endblock %}

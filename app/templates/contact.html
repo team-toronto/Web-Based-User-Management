@@ -1,9 +1,17 @@
 {% extends "base.html" %}
+
 {% block title %}Contact - User Management{% endblock %}
 
 {% block content %}
-<div class="contact-container">
-    <h2>Contact Us</h2>
-    <p>For inquiries, reach out to hkliu@cougarnet.uh.edu</p>
-</div>
+<section class="contact-container" aria-labelledby="contact-heading">
+    <h2 id="contact-heading">Contact Us</h2>
+    <p class="contact-description">
+        For inquiries, please feel free to reach out to us. We are here to assist you with any questions or concerns you may have.
+    </p>
+    <div class="contact-details">
+        <p><strong>Email:</strong> <a href="mailto:hkliu@cougarnet.uh.edu">hkliu@cougarnet.uh.edu</a></p>
+        <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 (832) 379 - 0999 </a></p>
+        <p><strong>Address:</strong> 4302 University Dr, Houston, TX 77004</p>
+    </div>
+</section>
 {% endblock %}
