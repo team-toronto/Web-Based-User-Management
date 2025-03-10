@@ -2,6 +2,7 @@ import os
 import requests
 from flask import Blueprint, redirect, url_for, session, flash, request
 from app.models import User
+import app.services.auth_service as auth_service
 
 auth = Blueprint('auth', __name__)
 
@@ -35,40 +36,45 @@ def microsoft_login():
 @auth.route('/auth/callback')
 def microsoft_callback():
     # Get the authorization code from Microsoft response
-    code = request.args.get("code")
-    if not code:
-        flash("Login failed. No authorization code received.", "error")
-        return redirect(url_for('main.home'))
+    #code = request.args.get("code")
+    #if not code:
+    #    flash("Login failed. No authorization code received.", "error")
+    #    return redirect(url_for('main.home'))
 
     redirect_uri = url_for('auth.microsoft_callback', _external=True)
+    user, err_msg = auth_service.microsoft_callback(redirect_uri)
+
+    if type(user)is not type(dict()):
+        flash(err_msg, "error")
+        return redurect(url_for("main.home"))
 
     # Exchange code for access token
-    token_data = {
-        "client_id": CLIENT_ID,
-        "client_secret": CLIENT_SECRET,
-        "grant_type": "authorization_code",
-        "code": code,
-        "redirect_uri": redirect_uri,
-        "scope": " ".join(SCOPE),
-    }
-    response = requests.post(TOKEN_URL, data=token_data)
-    token_json = response.json()
+    #token_data = {
+    #    "client_id": CLIENT_ID,
+    #    "client_secret": CLIENT_SECRET,
+    #    "grant_type": "authorization_code",
+    #    "code": code,
+    #    "redirect_uri": redirect_uri,
+    #    "scope": " ".join(SCOPE),
+    #}
+    #response = requests.post(TOKEN_URL, data=token_data)
+    #token_json = response.json()
 
-    if "access_token" not in token_json:
-        flash("Failed to authenticate with Microsoft.", "error")
-        return redirect(url_for('main.home'))
+    #if "access_token" not in token_json:
+    #    flash("Failed to authenticate with Microsoft.", "error")
+    #    return redirect(url_for('main.home'))
 
     # Store token & user session
-    access_token = token_json["access_token"]
-    session["access_token"] = access_token
+    #access_token = token_json["access_token"]
+    #session["access_token"] = access_token
 
     # Get user info
-    user_info = requests.get("https://graph.microsoft.com/v1.0/me", headers={"Authorization": f"Bearer {access_token}"}).json()
+    #user_info = requests.get("https://graph.microsoft.com/v1.0/me", headers={"Authorization": f"Bearer {access_token}"}).json()
 
-    session["user"] = user_info.get("displayName", "Unknown User")
-    session["email"] = user_info.get("mail", "No Email Provided")
-    session["exists"] = True
-    session["active"] = True
+    #session["user"] = user_info.get("displayName", "Unknown User")
+    #session["email"] = user_info.get("mail", "No Email Provided")
+    #session["exists"] = True
+    #session["active"] = True
 
     #curr_admins = ["hkliu@cougarnet.uh.edu", "eesenvar@cougarnet.uh.edu"] 
     #  Assign admin role if email matches yours

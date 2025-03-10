@@ -20,7 +20,6 @@ def create_app(config_class = dev_config):
     # Initialize Flask-Migrate (optional)
     Migrate(app, db)
 
-
     # Set a secret key for session management
     app.config['SECRET_KEY'] = os.environ.get('SECRET_KEY', 'your_default_secret_key')
     app.config['SERVER_NAME'] = 'localhost:5000'

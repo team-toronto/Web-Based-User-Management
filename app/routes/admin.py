@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, session, redirect, url_for, flash, request
-import app.services.user_services as user_service
+import app.services.user_service as user_service
 from app.models import User
 from app.decorators import admin_required, active_required
 

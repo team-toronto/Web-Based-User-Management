@@ -2,6 +2,8 @@ from functools import wraps
 from flask import session, abort, flash, redirect, url_for
 from app.models import User
 
+#TODO: Reduce db lookups by utilizing session tags.
+#TODO: Create a seperate wrapper for users not in database
 def admin_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
