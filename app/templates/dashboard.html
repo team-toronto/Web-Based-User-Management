@@ -5,5 +5,44 @@ block content %}
 	<p><strong>Email:</strong> {{ session['email'] }}</p>
 	<p><strong>Role:</strong> {{ session['role'] }}</p>
 	<p><strong>Note:</strong> You are logged in as a regular user.</p>
+
+
+	<form action="{{ url_for('dashboard.request_form') }}" method="POST">
+		<label for="academicForm">Request an Academic Form:</label>
+		<select id="academicForm" name="form_id" required>
+			<option value="" disabled selected>Select a form</option>
+			<option value="1">Academic Form 1</option>
+			<option value="2">Academic Form 2</option>
+		</select>
+		<button type="submit" class="btn">Submit Request</button>
+	</form>
+
+	<h2>Your Academic Requests</h2>
+	{% if academic_requests %}
+	<table class="table table-striped">
+		<thead>
+			<tr>
+				<th>ID</th>
+				<th>Form Type</th>
+				<th>Status</th>
+				<th>Submitted On</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for req in academic_requests %}
+			<tr>
+				<td>{{ req.id }}</td>
+				<td>{{ req.form_type }}</td>
+				<td>{{ req.status }}</td>
+				<td>{{ req.created_at.strftime("%Y-%m-%d %H:%M") if req.created_at else "N/A" }}</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	{% else %}
+	<p>You have not submitted any academic requests.</p>
+	{% endif %}
+</div>
+
 </div>
 {% endblock %}

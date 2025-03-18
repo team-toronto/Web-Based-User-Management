@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}User Management{% endblock %}</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}?v=1">
+
 </head>
 <body>
 
@@ -52,7 +53,7 @@
         {% block content %}{% endblock %}
     </div>
 
-    <script>
+	<script>
         // Fallback if script.js is missing
         fetch("{{ url_for('static', filename='js/script.js') }}")
             .then(response => {
