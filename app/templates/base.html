@@ -33,7 +33,7 @@
                     	{% if session.get('role') == 'Admin' %}
                         	<li><a href="{{ url_for('admin.dashboard') }}">Dashboard</a></li>
 						{% else %}
-                        	<li><a href="{{ url_for('main.dashboard') }}">Dashboard</a></li>
+                        	<li><a href="{{ url_for('dashboard.user_dashboard') }}">Dashboard</a></li>
                     	{% endif %}
 					{% endif %}
                     

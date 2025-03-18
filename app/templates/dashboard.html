@@ -1,34 +1,9 @@
-{% extends "base.html" %} {% block title %}Admin Dashboard{% endblock %} {%
+{% extends "base.html" %} {% block title %}User Dashboard{% endblock %} {%
 block content %}
 <div class="dashboard-container">
-    <h2>Welcome, {{ session['user'] }}!</h2>
-    <p><strong>Email:</strong> {{ session['email'] }}</p>
-    <p><strong>Role:</strong> {{ session['role'] }}</p>
-
-	<!-- {% if session["role"] == "Admin" %} -->
-    <h3>User List:</h3>
-    <table class="user-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Role</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for user in users %}
-            <tr>
-                <td>{{ user.user_id }}</td>
-                <td>{{ user.name }}</td>
-                <td>{{ user.email }}</td>
-                <td>{{ user.role }}</td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    {% else %}
-    <p><strong>Note:</strong> You are logged in as a regular user.</p>
-    {% endif %}
+	<h2>Welcome, {{ session['user'] }}!</h2>
+	<p><strong>Email:</strong> {{ session['email'] }}</p>
+	<p><strong>Role:</strong> {{ session['role'] }}</p>
+	<p><strong>Note:</strong> You are logged in as a regular user.</p>
 </div>
 {% endblock %}

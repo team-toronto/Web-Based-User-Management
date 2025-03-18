@@ -96,10 +96,10 @@ def microsoft_callback():
     #if session["email"].lower() in curr_admins:
     if user.role.lower() == "admin":
         session["role"] = "Admin"
-        return redirect(url_for('admin.dashboard'))
+        return redirect(url_for('admin.admin_dashboard'))
     else:
         session["role"] = "User"
-        return redirect(url_for('main.dashboard'))
+        return redirect(url_for('dashboard.user_dashboard'))
 
     #flash(f"Welcome, {session['user']}!", "success")
     #return redirect(url_for('admin.dashboard'))

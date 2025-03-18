@@ -8,7 +8,7 @@ admin = Blueprint("admin", __name__)
 @admin.route("/admin/dashboard")
 @admin_required
 @active_required
-def dashboard():
+def admin_dashboard():
     if "user" not in session:
         flash("Please log in to access the dashboard", "error")
         return redirect(url_for("auth.microsoft_login"))

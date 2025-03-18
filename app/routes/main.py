@@ -13,8 +13,3 @@ def about():
 @main.route('/contact')
 def contact():
     return render_template("contact.html")
-
-@main.route('/dashboard')
-@active_required
-def dashboard():
-    return render_template("dashboard.html")
