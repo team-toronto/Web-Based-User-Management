@@ -35,6 +35,17 @@ block content %}
 				<td>{{ req.form_type }}</td>
 				<td>{{ req.status }}</td>
 				<td>{{ req.created_at.strftime("%Y-%m-%d %H:%M") if req.created_at else "N/A" }}</td>
+				<td>
+					{% if req.status.lower() == "draft" %}
+					<a href="{{ url_for('dashboard.edit_special_circumstance', request_id=req.id) }}" class="btn btn-primary">Update</a>
+					<form action="{{ url_for('dashboard.delete_form', request_id=req.id) }}" method="POST" style="display:inline;">
+						<button type="submit" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this request?');">Delete</button>
+					</form>
+					{% else %}
+					<!-- Optionally, display a message or nothing -->
+					<span>N/A</span>
+					{% endif %}
+				</td>
 			</tr>
 			{% endfor %}
 		</tbody>
