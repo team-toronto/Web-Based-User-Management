@@ -1,0 +1,61 @@
+
+{% extends "base.html" %}
+{% block title %}Special Circumstance Form{% endblock %}
+
+{% block content %}
+<div class="form-container">
+	<h1>Special Circumstance Form</h1>
+	<!-- The student's name can be displayed/read-only if stored in session -->
+	<form action="{{ url_for('dashboard.special_circumstance') }}" method="POST" enctype="multipart/form-data">
+		<div>
+			<label for="student_name">Student Name:</label>
+			<!-- If the name is already in session, you can fill it in and mark read-only -->
+			<input type="text" id="student_name" name="student_name" value="{{ session['user'] }}" required>
+		</div>
+		<div>
+			<label for="student_id">Student ID:</label>
+			<input type="text" id="student_id" name="student_id" placeholder="Enter your student ID" required>
+		</div>
+		<div>
+			<label for="degree">Degree:</label>
+			<select id="degree" name="degree" required>
+				<option value="">Select Degree</option>
+				<option value="Masters">Masters</option>
+				<option value="Doctorate">Doctorate</option>
+			</select>
+		</div>
+		<div>
+			<label for="graduation_date">Date of Graduation (MM/YYYY):</label>
+			<input type="text" id="graduation_date" name="graduation_date" placeholder="MM/YYYY" required>
+		</div>
+		<div>
+			<label for="special_request_option">Special Request Option:</label>
+			<select id="special_request_option" name="special_request_option" required>
+				<option value="">Select an option</option>
+				<option value="First Embargo Extension">First Embargo Extension</option>
+				<option value="Additional Embargo Extension">Additional Embargo Extension</option>
+				<option value="Full Record Hold">Full Record Hold</option>
+				<option value="Other">Other</option>
+			</select>
+		</div>
+		<div>
+			<label for="other_option_detail">If Other, please specify:</label>
+			<input type="text" id="other_option_detail" name="other_option_detail" placeholder="Explain your situation">
+		</div>
+		<div>
+			<label for="justification">Reasoning/Justification for Special Request:</label>
+			<textarea id="justification" name="justification" rows="5" required></textarea>
+		</div>
+		<div>
+			<label for="signature">Student Signature (Upload an image file):</label>
+			<input type="file" id="signature" name="signature" accept="image/*" required>
+		</div>
+		<!-- The date can be taken from the system; you might show it as read-only if desired -->
+		<div>
+			<button type="submit" name="action" value="save_draft" class="btn btn-secondary">Save Draft</button>
+			<button type="submit" name="action" value="submit" class="btn btn-primary">Submit Request</button>
+		</div>
+	</form>
+</div>
+{% endblock %}
+

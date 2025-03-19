@@ -7,7 +7,7 @@ block content %}
 	<p><strong>Note:</strong> You are logged in as a regular user.</p>
 
 
-	<form action="{{ url_for('dashboard.request_form') }}" method="POST">
+	<form action="{{ url_for('dashboard.request_form') }}" method="GET">
 		<label for="academicForm">Request an Academic Form:</label>
 		<select id="academicForm" name="form_id" required>
 			<option value="" disabled selected>Select a form</option>
